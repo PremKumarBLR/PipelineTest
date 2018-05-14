@@ -4,12 +4,9 @@ pipeline {
         stage("Select Host endpoint") {
             steps {
                 script {
-                    env.LIST = readFile (file: "/var/lib/jenkins/NonProd") //Read some file into a variable
-
-                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                            parameters: [choice(name: 'RELEASE_SCOPE', choices: env.LIST, description: 'What is the release scope?')] //Provides input list
+                   file = new File("/var/lib/jenkins/NonProd").text
                 }
-                echo "Release scope selected: ${env.RELEASE_SCOPE}"
+                echo "$file"
             }
         }
     }
