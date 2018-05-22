@@ -1,4 +1,4 @@
-node('master') {
+node {
 
     stage('gitcheckout') {
         git url: 'git@gitlab.cloudhelp.in:PremKumar.Shanmugham/pipeline-test.git',
