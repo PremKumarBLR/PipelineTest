@@ -7,10 +7,10 @@ node {
     }
 
     stage('gitcheckout') {
-        env.STACK = readFile (file: "/var/lib/jenkins/ENVIRONMENT") //Read some file into a variable
+        env.STACK = readFile (file: "environment") //Read some file into a variable
         env.ENVIRONMENT = input message: 'User input required', ok: 'Release!',
                             parameters: [choice(name: 'ENVIRONMENT', choices: env.STACK, description: 'What is the ENVIRONMENT?')] //Provides input list
-        env.LIST = readFile (file: "/var/lib/jenkins/${env.ENVIRONMENT}") //Read some file into a variable
+        env.LIST = readFile (file: "${env.ENVIRONMENT}") //Read some file into a variable
         echo "File Contents : ${env.LIST}"
         
         env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
