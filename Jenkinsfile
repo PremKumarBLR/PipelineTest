@@ -4,6 +4,6 @@ node {
   }
 
   stage('readfiles') {
-    file = new File("${Jenkins.instance.getJob('JobName').workspace}/environment1").text
+    env.FILECONTENTS = readfile(file: 'environment1')
   }
 }
