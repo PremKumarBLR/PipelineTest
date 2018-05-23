@@ -4,7 +4,7 @@ node {
     }
 
     stage('readfiles') {
-        env.STACK = readFile (file: "environment") //Read some file into a variable
+        env.STACK = readFile (file: "environment1") //Read some file into a variable
         env.ENVIRONMENT = input message: 'User input required', ok: 'Release!',
                             parameters: [choice(name: 'ENVIRONMENT', choices: env.STACK, description: 'What is the ENVIRONMENT?')] //Provides input list
         env.LIST = readFile (file: "${env.ENVIRONMENT}") //Read some file into a variable
