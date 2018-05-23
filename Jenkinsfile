@@ -4,10 +4,6 @@ node {
   }
 
   stage('readfiles') {
-      def ws = pwd()
-      def context  = ws + "/testArtifact"
-      def file = ws + '/file'
-      sh 'touch ' + file
-      sh 'ls ' + ws        
+    file = new File("${Jenkins.instance.getJob('JobName').workspace}/environment1").text
   }
 }
