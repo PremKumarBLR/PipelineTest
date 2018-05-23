@@ -7,7 +7,7 @@ node {
         stage('readfiles') {
             def ws = pwd()
             def envfile  = ws + "/environment1"
-            env.STACK = readFile (file: '${envfile}') //Read some file into a variable
+            env.STACK = readFile (file: "${envfile}") //Read some file into a variable
             echo ${env.STACK}
             env.ENVIRONMENT = input message: 'User input required', ok: 'Release!',
                                 parameters: [choice(name: 'ENVIRONMENT', choices: env.STACK, description: 'What is the ENVIRONMENT?')] //Provides input list
