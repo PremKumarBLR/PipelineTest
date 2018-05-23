@@ -1,5 +1,5 @@
 node {
-    ws("workspace/${env.JOB_NAME}") {  
+    // ws("workspace/${env.JOB_NAME}") {  
         stage('helloworld') {
             echo 'Hello World'
         }
@@ -12,5 +12,5 @@ node {
             def version = readFile "${env.WORKSPACE}/environment1"
             echo version
         }
-    }
+    //}
 }
