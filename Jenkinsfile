@@ -7,6 +7,7 @@ node {
     }
 
     stage('gitcheckout') {
+        checkout scm
         env.STACK = readFile (file: "environment") //Read some file into a variable
         env.ENVIRONMENT = input message: 'User input required', ok: 'Release!',
                             parameters: [choice(name: 'ENVIRONMENT', choices: env.STACK, description: 'What is the ENVIRONMENT?')] //Provides input list
