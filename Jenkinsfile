@@ -4,6 +4,6 @@ node {
   }
 
   stage('readfiles') {
-    env.FILECONTENTS = readfile('environment1')
+    env.FILECONTENTS = readFile (file: 'environment1')
   }
 }
